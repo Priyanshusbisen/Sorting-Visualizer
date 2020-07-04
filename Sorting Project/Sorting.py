@@ -1,13 +1,24 @@
-import pygame
-from pygame import *
-import time
-import random
-import tkinter
-from tkinter import *
-from tkinter import messagebox
-from Algos import Selection_sort,Insertion_sort,mergeSort,Bubble_sort
-from Quick_sort import Algo_quick_sort
-from BARS import Bars
+try:
+    import pygame
+    from pygame import *
+    import time
+    import random
+    import tkinter
+    from tkinter import *
+    from Algos import Selection_sort,Insertion_sort,mergeSort,Bubble_sort
+    from Quick_sort import Algo_quick_sort
+    from BARS import Bars
+except:
+    import install_requirements
+    import pygame
+    from pygame import *
+    import time
+    import random
+    import tkinter
+    from tkinter import *
+    from Algos import Selection_sort,Insertion_sort,mergeSort,Bubble_sort
+    from Quick_sort import Algo_quick_sort
+    from BARS import Bars
 
 pygame.init()
 
@@ -96,17 +107,14 @@ class tkscreen():
         self.RButton5 = Radiobutton(self.tkwindow,text = 'Quick Sort',variable = var,value = 5)
         self.RButton5.pack()
         self.button = Button(self.tkwindow,text = 'Submit', command = self.submit)
-        self.button.pack()        
+        self.button.pack()
+        self.tkwindow.mainloop()
 
     def submit(self):
         screen = MainScreen(1300,600)
         screen.create_screen()
         self.tkwindow.destroy()
 
-def message(time):
-    Tk().wm_withdraw()
-    tkscreen().tkwindow.wm_withdraw
-    messagebox.showinfo('Sorting Time',f'{time*100} ms')
 
 test_list = []   
 for i in range(100):
